@@ -1,0 +1,24 @@
+# 1 задание 7 урока
+
+# 2 задание 7 урока
+from enum import Enum
+class TypeCloth(Enum):
+    suit = "костюм"
+    coat = "пальто"
+class ClothItem:
+    def __init__(self, name: str, type: TypeCloth, V: float, H: float):
+        self.name = name
+        self.type = type
+        self.H = H
+        self.V = V
+
+    @property
+    def valueCloth(self):
+        if self.type == TypeCloth.coat:
+            return (self.sizeV/6.5 + 0.5)
+        elif self.type == TypeCloth.suit:
+            return (2*self.H + 0.3)
+testSuit = ClothItem("Костюм из латекса", TypeCloth.suit, 60, 185)
+print(testSuit.valueCloth)
+testCoat = ClothItem("Пальто из гардероба купчихи", TypeCloth.coat, 23, 193)
+print(testCoat.valueCloth)
